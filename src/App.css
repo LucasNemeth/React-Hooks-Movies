@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: #2c0f08;
   height: 70px;
   display: flex;
   flex-direction: column;
@@ -31,9 +31,12 @@
 }
 
 .movies {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
+  width: calc(50% - 20px);
+  display: grid;
+  grid-template-columns: 33% 33% 33%;
+  background:#e2e1e1;
+  margin:10px;
+  padding:10px;
 }
 
 .App-header h2 {
@@ -51,8 +54,8 @@
 }
 
 .movie {
-  padding: 5px 25px 10px 25px;
-  max-width: 25%;
+  /* padding: 5px 25px 10px 25px; */
+  /* max-width: 25%; */
 }
 
 .errorMessage {
@@ -70,6 +73,17 @@
   margin-top: 10px;
 }
 
+.main-content{
+  display: flex;
+  
+}
+
+.nomination-list{
+  background:#e2e1e1;
+  margin:10px;
+  padding:10px;
+  width: 50%;
+}
 
 input[type="submit"] {
   padding: 5px;

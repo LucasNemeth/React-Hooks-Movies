@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Header from './components/Header';
 import Movie from "./components/Movie";
 import Search from "./components/Search";
+import Nominations from "./components/Nominations";
 // import './App.css';
 // import { useState } from 'react';
 // import { useEffect } from 'react';
@@ -50,17 +51,23 @@ const App = () => {
       <Header text="Welcome to the Movies"/>
       <Search search={search} />
       <p className="App-intro"> Sharin' dem movies</p>
-      <div className="movies">
-        {loading && !errorMessage ? (
-          <span>loading...</span>
-        ) : errorMessage ? (
-          <div className="errorMessage">{errorMessage}</div>
-        ) : (
-          movies.map((movie, index) => (
-            <Movie key={`${index}-${movie.Title}`} movie={movie}/>
-          ))
-        )}
+      <div className="main-content">
+        <div className="movies">
+          {loading && !errorMessage ? (
+            <span>loading...</span>
+          ) : errorMessage ? (
+            <div className="errorMessage">{errorMessage}</div>
+          ) : (
+                movies.map((movie, index) => (
+                  <Movie key={`${index}-${movie.Title}`} movie={movie} />
+                ))
+              )}
+        </div>
+        <div className="nomination-list">
+          <Nominations />
+        </div>
       </div>
+      
     </div>
   )
 }
