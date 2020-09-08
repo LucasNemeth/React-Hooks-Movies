@@ -2,12 +2,13 @@ import React from 'react';
 
 const nomList =[]
 
-const Nominations = ({movie}) =>{
-    
+const Nominations = (props) =>{
+    console.log(props.setNominations)
     return(
         <ul>
-            {nomList.map((movie)=>(
-                <li key={movie.id}>{movie.name}</li>
+            <p>can I display?</p>
+            {nomList.map((props)=>(
+                <li >{props.setNominations}</li>
             ))}
         </ul>
     )

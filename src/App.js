@@ -18,7 +18,9 @@ const initState = {
 const App = () => {
   const [loading, setLoading] = useState(true);
   const [movies, setMovies] = useState([]);
+  const [nominations, setNominations] = useState([])
   const [errorMessage, setErrorMessage] = useState(null);
+
 
   useEffect(() => {
     fetch(movie_URL)
@@ -47,12 +49,13 @@ const App = () => {
   };
 
   return (
+    
     <div className="App">
       <Header text="Welcome to the Movies"/>
       <Search search={search} />
       <p className="App-intro"> Sharin' dem movies</p>
       <div className="main-content">
-        <div className="movies">
+        <ul className="movies">
           {loading && !errorMessage ? (
             <span>loading...</span>
           ) : errorMessage ? (
@@ -62,9 +65,10 @@ const App = () => {
                   <Movie key={`${index}-${movie.Title}`} movie={movie} />
                 ))
               )}
-        </div>
+        </ul>
         <div className="nomination-list">
-          <Nominations />
+          <Nominations nominations={nominations} setNominations={setNominations}
+          />
         </div>
       </div>
       
